@@ -11,10 +11,8 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
     return items.filter(item => item.rating >= 4)
 }
 
-const books = [
-  { title: "Book A", rating: 4.5 },
-  { title: "Book B", rating: 3.2 },
-  { title: "Book C", rating: 5.0 }
-];
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+    return arrays.reduce((arr, curr) => arr.concat(curr));
+}
 
-console.log(filterByRating(books));
+console.log(concatenateArrays(["a", "b"], ["c"]));
