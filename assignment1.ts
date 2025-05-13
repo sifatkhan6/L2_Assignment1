@@ -15,4 +15,11 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
     return arrays.reduce((arr, curr) => arr.concat(curr));
 }
 
-console.log(concatenateArrays(["a", "b"], ["c"]));
+function processValue(value: string | number): number {
+    if (typeof value === 'string') {
+        return value.length;
+    }
+    else return value * 2;
+}
+
+console.log(processValue('sifat'));
