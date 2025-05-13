@@ -1,0 +1,2 @@
+** 1. What are some differences between interfaces and types in TypeScript? **
+*Answer:* Interface and Type Alias are kind of same but they has many differences. Interface can be extend with 'Extends' but type need to extend with intersections. We can declare multiple declarations with interface but its not possible with type alias. Interface is ideal for object on the other hand we can use type alias in object, primitive, funstion, union, tuple. Type alias supports unions but interface doesn't. 
