@@ -15,6 +15,8 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
     return arrays.reduce((arr, curr) => arr.concat(curr));
 }
 
+
+
 function processValue(value: string | number): number {
     if (typeof value === 'string') {
         return value.length;
@@ -22,4 +24,20 @@ function processValue(value: string | number): number {
     else return value * 2;
 }
 
-console.log(processValue('sifat'));
+interface Product {
+  name: string;
+  price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length === 0) {
+    return null;
+  }
+
+  else {
+    return products.reduce((currentProduct, nextProduct) => {
+        return currentProduct.price > nextProduct.price ? currentProduct : nextProduct;
+    })
+  }
+}
+
