@@ -7,14 +7,15 @@ function formatString(input: string, toUpper?: boolean): string {
     }
 }
 
+
 function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
     return items.filter(item => item.rating >= 4)
 }
 
+
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     return arrays.reduce((arr, curr) => arr.concat(curr));
 }
-
 
 
 function processValue(value: string | number): number {
@@ -23,6 +24,7 @@ function processValue(value: string | number): number {
     }
     else return value * 2;
 }
+
 
 interface Product {
   name: string;
@@ -41,15 +43,38 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   }
 }
 
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday
+}
+
+function getDayType(day: Day): string {
+  switch (day) {
+    case Day.Saturday:
+    case Day.Sunday:
+      return "Weekend";
+    default:
+      return "Weekday";
+  }
+}
+
+console.log(getDayType(Day.Sunday));
+
 async function squareAsync(n: number): Promise<number> {
-  return new Promise((solve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (n < 0) {
         reject(new Error("Negative number not allowed"));
       }
       
       else {
-        solve(n * n);
+        resolve(n * n);
       }
     }, 1000);
   })
